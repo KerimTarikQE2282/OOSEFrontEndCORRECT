@@ -1,5 +1,7 @@
 import React from "react";
-
+import axios from "axios"
+import { useForm } from "react-hook-form";
+const url = 'https://course-api.com/axios-tutorial-post';
 export default function Form(){
 const [PatienInfo,setPatientInfo]=React.useState({
     firstname:"",
@@ -14,28 +16,36 @@ const [PatienInfo,setPatientInfo]=React.useState({
    
 
 })
-function handleChange(event){
-    const {name,value}=event.target
-setPatientInfo(prev=> ({
-    ...prev,
-    [name]:value
-
-}) )
+const url="https://localhost:44371/api/PatientInfo";
+//const onSubmit =data=>console.log(data.firstName)
+const {register,handleSubmit}=useForm();
+//axios.post(url,PatienInfo)
 
 
-
-console.log(PatienInfo)
+const onSubmit = async (data) => {
+ 
+console.log(data);
+  try {
+    const reps=await axios.post(url,{
+    data
+    });
+   console.log(reps)
+  } catch (error) {
+    console.log(error.reps);
+  }
 }
+
+
    return(
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="Form1">
+      <div className="firstHalf">
   <p>first name </p>  
     <br/>
         <input
      type="text"
     
-     onChange={handleChange}
-     name="firstname"
-     value={PatienInfo.firstname}
+   {...register("firstName")}
    />
      <br/>
      <p>middle name</p>
@@ -43,9 +53,7 @@ console.log(PatienInfo)
      <input
      type="text"
     
-     onChange={handleChange}
-     name="middlename"
-     value={PatienInfo.middlename}
+     {...register("middleName")}
    
 
      />
@@ -55,9 +63,7 @@ console.log(PatienInfo)
      <input
      type="text"
     
-     onChange={handleChange}
-     name="lastname"
-     value={PatienInfo.lastname}
+     {...register("lastName")}
    
 
      />
@@ -66,34 +72,27 @@ console.log(PatienInfo)
      <br/>
      <input
      type="text"
-    
-     onChange={handleChange}
-     name="kebele"
-     value={PatienInfo.kebele}
-   
+     {...register("kebele")}
 
      />
      <br/>
+    
       <p>kifleketema</p>
      <br/>
      <input
      type="text"
     
-     onChange={handleChange}
-     name="kifleketema"
-     value={PatienInfo.kifleketema}
-   
+     {...register("kifleKetema")}
 
      />
+     </div> <div className="second half">
      <br/>
       <p>wereda</p>
      <br/>
      <input
      type="text"
     
-     onChange={handleChange}
-     name="wereda"
-     value={PatienInfo.wereda}
+     {...register("wereda")}
    
 
      />
@@ -103,9 +102,7 @@ console.log(PatienInfo)
     <input
      type="text"
     
-     onChange={handleChange}
-     name="Dateofbirth"
-     value={PatienInfo.Dateofbirth}
+     {...register("DOB")}
    
 
      />
@@ -115,9 +112,7 @@ console.log(PatienInfo)
     <input
      type="text"
     
-     onChange={handleChange}
-     name="telephone"
-     value={PatienInfo.telephone}
+     {...register("phone")}
    
 
      />
@@ -129,21 +124,16 @@ console.log(PatienInfo)
      <input
      type="text"
     
-     onChange={handleChange}
-     name="emergencytelephone"
-     value={PatienInfo.emergencytelephone}
+     {...register("emergencyPhone")}
    
 
      />
 <br/>
-       
-        
-        
 
 
-
-   
-   <button>submit</button>
+      </div> 
+      </div>
+        <button>submit</button>
     </form>
    )
 }
