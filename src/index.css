@@ -4,6 +4,24 @@ body {
   font-family: 'Inter', sans-serif;
 font-family: 'Karla', sans-serif;
 }
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+a{
+  color: #ffffff;
+}
 
 .nav{
   
@@ -87,4 +105,26 @@ select{
   line-height: 70px;
   background-color: #063146;
   user-select: none;
+}
+
+.hregList a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 80px;
+  font-size: 20px;
+  color: white;
+  padding-left: 20px;
+  border-top: 1px solid;
+}
+.repregList a{
+  display:block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 20px;
+  border-top: 1px solid;
+ 
 }
