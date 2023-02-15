@@ -1,46 +1,45 @@
 import React from "react";
 import Axios from "axios"
+import Success from '../Components/SuccesfullRegistration'
+import AlreadyRegistered from '../Components/AlreadyRegistered'
 import { useForm } from "react-hook-form";
 
 export default function Form(){
-  const url="https://localhost:44371/api/Representative";
+  const url="https://localhost:44371/api/PatientInfo";
 const [RepresentativeInfo,setRepresentativeInfo]=React.useState({
     
    
-                FirstName : "",
-                middleName : "",
-                LastName : "",
-                 Email:"",
-                PhoneNumber : "",
-                region : "",
-                kebele : "",
-                kifleketema : "",
-                woreda : "",
-                HospitalId : "",
-                Password : ""
    
+    firstName:'',
+    middleName :'',
+    lastName :'',
+    Kebele :'',
+    kifleketema:'',
+    wereda:'',
+    DOB :'',
+    phoneNumber :'',
+    emergencyPhone:''
 })
 function submit(e){
   e.preventDefault();
   Axios.post(url,{
-    FirstName : RepresentativeInfo.FirstName,
+    firstName : RepresentativeInfo.firstName,
     middleName : RepresentativeInfo.middleName,
-    LastName : RepresentativeInfo.LastName,
-     Email:RepresentativeInfo.Email,
-    PhoneNumber : RepresentativeInfo.PhoneNumber,
-    region : RepresentativeInfo.region,
+    lastName : RepresentativeInfo.lastName,
+    phoneNumber: RepresentativeInfo. phoneNumber,
     kebele : RepresentativeInfo.kebele,
     kifleketema : RepresentativeInfo.kifleketema,
-    woreda : RepresentativeInfo.woreda,
-    HospitalId : RepresentativeInfo.HospitalId,
-    Password : RepresentativeInfo.Password
+    wereda : RepresentativeInfo.wereda,
+    emergencyPhone : RepresentativeInfo. emergencyPhone,
+    DOB : RepresentativeInfo. DOB
 
   }).then(res=>
     {
-   console.log(res.data);
+   setStatus(res.data)
     }
   )
 }
+const [status,setStatus]=React.useState(1)
 function handle(e){
 const newdata={...RepresentativeInfo}
 newdata[e.target.id]=e.target.value
@@ -51,6 +50,7 @@ console.log(RepresentativeInfo)
 
 
    return(
+    <>
     <form onSubmit={(e)=>submit(e)}>
       <div className="Form1">
       <div className="firstHalf">
@@ -60,8 +60,8 @@ console.log(RepresentativeInfo)
      type="text"
      placeholder="First Name"
      onChange={(e)=>handle(e)}
-     id="FirstName"
-     value={RepresentativeInfo.FirstName}
+     id="firstName"
+     value={RepresentativeInfo.firstName}
     />
      <br/>
      <p>Middle Name</p>
@@ -82,25 +82,14 @@ console.log(RepresentativeInfo)
      type="text"
      placeholder="Last name"
      onChange={(e)=>handle(e)}
-     id="LastName"
-     value={RepresentativeInfo.LastName}
+     id="lastName"
+     value={RepresentativeInfo.lastName}
      
    
 
      />
      <br/>
-      <p>Email</p>
-     <br/>
-     <input
-     type="text"
-     placeholder="Email"
-     onChange={(e)=>handle(e)}
-     id="Email"
-     value={RepresentativeInfo.Email}
-     
 
-     />
-     <br/>
     
       <p>Phone Number</p>
      <br/>
@@ -115,18 +104,7 @@ console.log(RepresentativeInfo)
      />
      <br/>
     
-    <p>region</p>
-   <br/>
-   <input
-   type="text"
-   placeholder="region"
-   onChange={(e)=>handle(e)}
-   id="region"
-   value={RepresentativeInfo.region}
-   
 
-   />
-   <br/>
     
     <p>kebele</p>
    <br/>
@@ -160,34 +138,34 @@ console.log(RepresentativeInfo)
    type="text"
    placeholder="Hospital Woreda"
    onChange={(e)=>handle(e)}
-   id="woreda"
-   value={RepresentativeInfo.woreda}
+   id="wereda"
+   value={RepresentativeInfo.wereda}
    
 
    />
    <br/>
     
-    <p>Hospital Id</p>
+    <p>Emergency Phone</p>
    <br/>
    <input
-   type="number"
-   placeholder="Hospital Id"
+   type="string"
+   placeholder="Emergency Phone"
    onChange={(e)=>handle(e)}
-   id="HospitalId"
-   value={RepresentativeInfo.HospitalId}
+   id="emergencyPhone"
+   value={RepresentativeInfo.emergencyPhone}
    
 
    />
    <br/>
     
-    <p>Password</p>
+    <p>Date of birth</p>
    <br/>
    <input
-   type="text"
-   placeholder="Password"
+   type="date"
+   placeholder="Date of birth"
    onChange={(e)=>handle(e)}
-   id="Password"
-   value={RepresentativeInfo.Password}
+   id="DOB"
+   value={RepresentativeInfo.DOB}
    
 
    />
@@ -205,5 +183,8 @@ console.log(RepresentativeInfo)
       </div>
         <button>submit</button>
     </form>
+    {status==0 && <AlreadyRegistered/>}
+    {status!=0 && <Success/>}
+    </>
    )
 }

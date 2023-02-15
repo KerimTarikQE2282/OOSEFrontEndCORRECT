@@ -1,6 +1,6 @@
 import React from 'react'
-import Sidebar from './Components/Sidebar'
-import Nav from '../Nav'
+import Sidebar from './Sidebar'
+import Nav from '../../Nav'
 
 export default function FullDashBoard(){
     return(

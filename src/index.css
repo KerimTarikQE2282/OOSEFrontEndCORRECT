@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-font-family: 'Karla', sans-serif;
+  font-family: 'Catamaran', sans-serif;
+  background-color: ecf0f3;
 }
 a:link {
   text-decoration: none;
@@ -18,6 +18,8 @@ a:hover {
 
 a:active {
   text-decoration: none;
+  background-color: #ffffff;
+  color: black;
 }
 a{
   color: #ffffff;
@@ -27,6 +29,7 @@ a{
   
   display: flex;
   background-color: #11468F;
+
 }
 .searchButton{
 
@@ -127,4 +130,166 @@ select{
   padding-left: 20px;
   border-top: 1px solid;
  
+}
+.AlreadyReg{
+color: red;
+width:400px;
+height: 100px;
+position:relative;
+left: 550px;
+}
+.success{
+  color: blue;
+  width:400px;
+  height: 100px;
+  position:relative;
+  left: 550px;
+}
+.myButton {
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color:#2e466e;
+	border-radius:17px;
+	border:1px solid #1f2f47;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	background-color:#415989;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+li a:active{
+  background-color:aqua;
+}
+.DisplayHospitals{
+  display: inline;
+}
+.DisplayHospitals li{
+
+
+margin: 10px;
+margin-left: 205px;
+ list-style-type: none;
+ width: 400px;
+ display: inline-block;
+ font-size: larger;
+}
+.DisplayHospitals li div{
+  
+margin-left: 20px;
+ background-color: #e0fbfc;
+  border-radius: 10px;
+  padding-left: 10px;
+  
+}
+.noofHospitals{
+  margin-left: 300px;
+  font-size: larger;
+  font: bolder;
+}
+.search{
+  margin-left: 400px;
+  width: 30%;
+  position: relative;
+  display: flex;
+}
+.searchTerm {
+  width: 50%;
+  border: 3px solid #00B4CC;
+ 
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 5px 5px 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+
+/* CSS */
+.button {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #07c;
+}
+
+.button:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+.searchResponse{
+  margin-left: 550px;
+  border:10px;
+  border-radius: 10px;
+  border-color: #0095ff;
+  width: 600px;
+  background-color:#0095ff ;
+}
+.charts div{
+  width:600px;
+  height:400px;
+  margin-bottom: 10px;
+  transition:  400ms ease-out 100ms
+}
+.charts div:hover{
+  width:700px;
+  height:500px;
+  margin-bottom: 10px;
+}
+.charts{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

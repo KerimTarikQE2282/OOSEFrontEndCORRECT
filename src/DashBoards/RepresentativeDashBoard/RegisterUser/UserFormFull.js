@@ -1,6 +1,6 @@
 import React from 'react'
-import Nav from '../Nav'
-import Body from './Form'
+import Nav from '../Components/Nav'
+import UserForm from './UserForm'
 
 
 
@@ -8,7 +8,7 @@ function Form() {
     return (
       <>
       <Nav/>
-  <Body/>
+      <UserForm/>
   </>
     );
   }

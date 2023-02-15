@@ -1,6 +1,8 @@
 import React from "react";
 import Axios from "axios"
 import { useForm } from "react-hook-form";
+import AlreadyRegistered from '../Components/AlreadyRegistered'
+import Success from '../Components/SuccesfullRegistration'
 
 export default function Form(){
   const url="https://localhost:44371/api/Hospitals";
@@ -14,6 +16,8 @@ const [HospitalInfo,setHospitalInfo]=React.useState({
     HospitalWoreda:""
    
 })
+
+const [_AlreadyRegistered,setAlreadyRegistered]=React.useState(1)
 function submit(e){
   e.preventDefault();
   Axios.post(url,{
@@ -24,20 +28,27 @@ function submit(e){
     HospitalWoreda:HospitalInfo.HospitalWoreda
   }).then(res=>
     {
-   console.log(res.data);
+    
+      
+      setAlreadyRegistered(res.data)
+ 
     }
   )
 }
+
+
+
+
 function handle(e){
 const newdata={...HospitalInfo}
 newdata[e.target.id]=e.target.value
 setHospitalInfo(newdata)
-console.log(HospitalInfo)
+
 }
 
 
-
    return(
+    <>
     <form onSubmit={(e)=>submit(e)}>
       <div className="Form1">
       <div className="firstHalf">
@@ -108,7 +119,11 @@ console.log(HospitalInfo)
 
       </div> 
       </div>
-        <button>submit</button>
+        <button className="myButton">submit</button>
     </form>
+{_AlreadyRegistered==0 && <AlreadyRegistered/>}
+{_AlreadyRegistered>1 && <Success/>}
+    </>
+
    )
 }

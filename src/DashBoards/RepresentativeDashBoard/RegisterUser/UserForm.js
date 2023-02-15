@@ -1,6 +1,8 @@
 import React from "react";
 import Axios from "axios"
 import { useForm } from "react-hook-form";
+import AlreadyRegistered from "../Components/AlreadyRegistered";
+import  Success  from "../Components/SuccesfullRegistration";
 
 export default function UserForm(){
   const url="https://localhost:44371/api/SystemUsers";
@@ -18,6 +20,7 @@ const [UserInfo,setUserInfo]=React.useState({
       HospitalId :""
    
 })
+const [status,setStatus]=React.useState('');
 function submit(e){
   e.preventDefault();
   Axios.post(url,{
@@ -33,7 +36,7 @@ function submit(e){
     
   }).then(res=>
     {
-   console.log(res.data);
+  setStatus(res.data);
     }
   )
 }
@@ -47,6 +50,7 @@ console.log(UserInfo)
 
 
    return(
+    <>
     <form onSubmit={(e)=>submit(e)}>
       <div className="Form1">
       <div className="firstHalf">
@@ -165,6 +169,10 @@ console.log(UserInfo)
       </div> 
       </div>
         <button>submit</button>
+     
     </form>
+    {status==0 && <AlreadyRegistered/>}
+    {status!=0 && <Success/>}
+    </>
    )
 }
