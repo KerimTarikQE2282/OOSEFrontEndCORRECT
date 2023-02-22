@@ -3,7 +3,7 @@ import Axios from 'axios'
 
 const FetchHospitals = () => {
     const [Hospitals,setHospitals]=React.useState([])
- const  URL="https://localhost:44371/api/Hospitals"
+ const  URL="https://localhost:44371/api/Hospitals/GetAllHospitals"
  
 React.useEffect(()=>{
     Axios.get(URL).

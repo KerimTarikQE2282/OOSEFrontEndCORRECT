@@ -22,6 +22,7 @@ import ShowVitals from './DashBoards/NurseDashBoard/ShowVitals'
 import PhysicianDashBoard from './DashBoards/physicianDashBoard/PhysicianDashBoard'
 import AddPrescription from './DashBoards/physicianDashBoard/AddPrescription'
 import InputDiagnosis from './DashBoards/physicianDashBoard/InputDiagnosis'
+import AddDiagnosis from './DashBoards/physicianDashBoard/AddDiagnosis'
 
 
 
@@ -68,7 +69,8 @@ function App(props) {
     <Route path='PhysicianDashBoard' element={<PhysicianDashBoard/>}></Route>
     <Route path='AddPrescription' element={<AddPrescription/>}></Route>
     <Route path='InputDiagnosis' element={<InputDiagnosis/>}></Route>
-
+    <Route path='AddDiagnosis' element={<AddDiagnosis/>}></Route>
+    
     
     <Route path='UserRegistrationForm' element={<UserRegistrationForm/>}>  </Route>
     <Route path='RepresentativeRegistrationForm' element={<RepresentativeRegistrationForm/>}>  </Route>
