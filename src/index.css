@@ -29,6 +29,7 @@ a{
   
   display: flex;
   background-color: #11468F;
+  z-index: 1000;
 
 }
 .searchButton{
@@ -89,6 +90,9 @@ form  input:focus
 }
 select{
   margin-bottom: 30px;
+}
+.sideBarList{
+  height: 5000px;
 }
 .SideBarList{
   margin: 0;
